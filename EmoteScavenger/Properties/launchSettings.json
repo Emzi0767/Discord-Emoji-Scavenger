@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "EmoteScavenger": {
+      "commandName": "Project",
+      "commandLineArgs": "\"L:\\Temp\\emotes\""
+    }
+  }
+}
