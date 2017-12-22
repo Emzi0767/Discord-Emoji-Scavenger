@@ -65,7 +65,7 @@ namespace EmoteScavenger
 
             try
             {
-                using (var res = await this.Http.GetAsync(emoji.Url))
+                using (var res = await this.Http.GetAsync(string.Concat(emoji.Url, "?a")))
                 using (var str = await res.Content.ReadAsStreamAsync())
                 using (var fs = targetFile.Create())
                     await str.CopyToAsync(fs);
