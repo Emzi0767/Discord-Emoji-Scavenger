@@ -61,7 +61,7 @@ namespace EmoteScavenger
         private static string ExtractToken(FileInfo dbf)
         {
             var tfn = string.Concat(dbf.FullName, ".tmp");
-            dbf = dbf.CopyTo(tfn);
+            dbf = dbf.CopyTo(tfn, true);
 
             string token = null;
             using (var db = new StorageContext(dbf))

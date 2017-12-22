@@ -50,7 +50,8 @@ namespace EmoteScavenger
             foreach (var emoji in emojis)
             {
                 var td = dirs[emoji.GuildId];
-                var tf = Path.Combine(td.FullName, $"{emoji.Name}.png");
+                var tf = Path.Combine(td.FullName, $"{emoji.Name}");
+                tf = string.Concat(tf, emoji.IsAnimated ? ".gif" : ".png");
 
                 tasks.Add(DownloadAsync(emoji, new FileInfo(tf)));
             }
@@ -64,7 +65,7 @@ namespace EmoteScavenger
 
             try
             {
-                using (var res = await this.Http.GetAsync(string.Format(SOURCE_URL, emoji.Id)))
+                using (var res = await this.Http.GetAsync(emoji.Url))
                 using (var str = await res.Content.ReadAsStreamAsync())
                 using (var fs = targetFile.Create())
                     await str.CopyToAsync(fs);

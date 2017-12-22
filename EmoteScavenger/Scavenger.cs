@@ -68,7 +68,7 @@ namespace EmoteScavenger
 
             var xg = e.Guild;
             foreach (var xe in xg.Emojis)
-                this.Emojis.Add(new Emoji(xe.Name, xe.Id, xg.Name, xg.Id));
+                this.Emojis.Add(new Emoji(xe.Name, xe.Id, xg.Name, xg.Id, xe.Url, xe.IsAnimated));
 
             if (this.GuildsToSync.TryDequeue(out var gld))
                 return e.Client.SyncGuildsAsync(gld);

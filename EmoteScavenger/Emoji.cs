@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace EmoteScavenger
+﻿namespace EmoteScavenger
 {
     public struct Emoji
     {
@@ -8,16 +6,17 @@ namespace EmoteScavenger
         public ulong Id { get; }
         public string GuildName { get; }
         public ulong GuildId { get; }
+        public string Url { get; }
+        public bool IsAnimated { get; }
 
-        public Emoji(string name, ulong id, string guildName, ulong guildId)
+        public Emoji(string name, ulong id, string guildName, ulong guildId, string url, bool anim)
         {
             this.Name = name;
             this.Id = id;
             this.GuildName = guildName;
             this.GuildId = guildId;
+            this.Url = url;
+            this.IsAnimated = anim;
         }
-
-        public Uri GetUri()
-            => new Uri($"https://cdn.discordapp.com/emojis/{this.Id}.png");
     }
 }
